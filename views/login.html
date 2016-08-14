@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="../public/stylesheets/icon.css"/>
+    <link rel="stylesheet" href="../public/stylesheets/login.css"/>
+    <style>
+        body {
+            background: #ebebeb;
+        }
+    </style>
+</head>
+<body>
+<div class="login-top-background">
+</div>
+
+<div class="login-container">
+    <div class="hint_message_wrapper">
+       <span id="hint_message"><%=message%></span>
+    </div>
+    <form action="/users/login.html" id="login_form" method="get">
+    <p class="username-input-wrapper">
+            <span
+                    class="name-icon"></span>
+        <input class="ipt" type="text" id="login_username_ipt" name="userId" placeholder="用户名">
+        <span id="username_delete_icon" class="name-delete-icon"></span>
+    </p>
+    <p class="password-input-wrapper">
+        <span class="password-icon">
+        </span>
+        <input class="ipt" type="password" id="login_password_ipt" name="password" placeholder="密码">
+        <span id="password_delete_icon" class="password-delete-icon"></span>
+    </p>
+    <p class="remember-password-wrapper">
+        <label for="remember_pwd">记住密码</label>
+        <input type="checkbox" id="remember_pwd"/>
+        <span>
+            <a href="/register.html">立即注册</a>
+        </span>
+    </p>
+    <p class="login-btn-wrapper">
+        <button type="submit" class="login-btn" id="login_btn">登录</button>
+    </p>
+    </form>
+</div>
+<script src="../public/javascripts/jquery-3.0.0.js"></script>
+<script src="../public/javascripts/login.js"></script>
+</body>
+</html>

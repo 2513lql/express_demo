@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>用户查询</title>
+    <link rel="stylesheet" href="/stylesheets/divide_page_nav.css"/>
+    <script src="/javascripts/jquery-3.0.0.js"></script>
+    <script src="/javascripts/divide_page.js"></script>
+    <script>
+        $(document).ready(function(){
+                loadFirstPage();
+        });
+
+        function loadFirstPage(){
+            $.ajax({
+                async:true,
+                url:"/users/v1/all/firstpage.html",
+                data:{currentPage:1,pageSize:10},
+                type:"GET",
+                dataType:"JSON",
+                success:function(data){
+                    parseFirstPageData(data);
+                },
+                error:function(data){
+                    console.log(data);
+                }
+            });
+        }
+
+        function loadCurrentPage(cur,pageSize){
+            $.ajax({
+                async:true,
+                url:"/users/v1/dividpage/finduser.html",
+                data:{currentPage:cur,pageSize:pageSize},
+                type:"GET",
+                dataType:"JSON",
+                success:function(data){
+                    data = JSON.parse(data);
+                    parseDate(data);
+                },
+                error:function(data){
+                    console.log(data);
+                }
+            });
+        }
+
+        function parseFirstPageData(data){
+            data = JSON.parse(data);
+            var recordsCount = Number(data["recordCounts"]);
+            $("#nav_wrapper").dividePageNav({
+                totalCount:recordsCount,
+                showPage:5,
+                pageSize:10,
+                callback: function (cur,pageSize,totalCount) {
+                    loadCurrentPage(cur,pageSize);
+                }
+            });
+            parseDate(data);
+        }
+
+        function parseDate(data){
+            var users = data["users"];
+            var html = '<div class="row title"><div class="item">name</div><div class="item">age</div> <div class="item">address</div><div class="item">description</div></div>';
+            for(var i = 0,len = users.length; i < len ;i++){
+                if(i % 2 == 0){
+                    html += '<div class="row odd">'
+                }else{
+                    html += '<div class="row even">'
+                }
+                html += '<div class="item">' + users[i]["name"] + '</div>';
+                html += '<div class="item">' + users[i]["age"] + '</div>';
+                html += '<div class="item">' + users[i]["address"] + '</div>';
+                html += '<div class="item">' + users[i]["description"] + '</div>';
+                html += '</div>';
+            }
+            $("#container").html(html);
+        }
+    </script>
+</head>
+    <style type="text/css">
+
+        .container{
+            width: 800px;
+            margin: 0px auto;
+            margin-top: 50px;
+            border: 2px solid #777777;
+        }
+
+        .clearfix:after{
+            display: block;
+            content: "";
+            height: 0;
+            visibility: hidden;
+            clear: both;
+        }
+        .clearfix{
+            zoom: 1;
+        }
+
+        .container .row{
+            width: 800px;
+            height: 40px;
+            border-bottom: 2px solid #777777;
+            float: left;
+        }
+
+        .container :last-child{
+            margin-bottom: -2px;
+        }
+
+        .title{
+            background: antiquewhite;
+        }
+
+        .container .odd{
+            background: #F5F5F5;
+        }
+
+        .container .even{
+            background: #bbbbbb;
+        }
+
+        .container .row .item{
+            width: 198px;
+            height: inherit;
+            overflow: hidden;
+            float: left;
+            text-align: center;
+            line-height: 40px;
+            border-left: 2px solid #777777;
+        }
+
+        .row :first-child{
+            margin-left: -2px;
+        }
+
+        .divide_page_container{
+            width: 800px;
+            height: 150px;
+            position: relative;
+            border: 1px solid #777777;
+            margin: 0px auto;
+            margin-top: 50px;
+        }
+    </style>
+<body>
+    <div id="container" class="container clearfix">
+        <div class="row title">
+            <div class="item">
+                name
+            </div>
+            <div class="item">
+                age
+            </div>
+            <div class="item">
+                address
+            </div>
+            <div class="item">
+                description
+            </div>
+        </div>
+        <div class="row odd">
+
+        </div>
+        <div class="row even">
+
+        </div>
+    </div>
+
+
+    <div class="divide_page_container" id="nav_wrapper">
+        <div class="divide_page_nav_wrapper">
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+
+.container{
+    position: relative;
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    border: 3px solid #595959;
+    display: inline-block;
+}
+
+.first_demo{
+    left: 100px;
+    top: 200px;
+}
+
+.second_demo{
+    left: 150px;
+    top: 200px;
+}
+
+.second_demo img{
+    transition: all 0.5s ease 0s;
+}
+
+.content-wrapper{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    background: rgba(227,227,227,0.6);
+    transition: 0.5s;
+}
+
+.first_des{
+    top: 102px;
+}
+
+.second_des{
+    top: -102px;
+}
+
+
+
+.first_demo:hover .content-wrapper{
+    top: 0px;
+}
+
+.second_demo:hover .content-wrapper{
+    top: 0px;
+}
+
+.second-img-wrapper{
+    position: absolute;
+    z-index: 1000;
+}
+.second_demo:hover img{
+    transform: rotateX(70deg);
+    transform-origin: center bottom 0;
+}
+
+
+button{
+    background: dodgerblue;
+    padding: 0.4em 0.6em;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    color: #FFF;
+}
+
+button:hover{
+    background: #00B7FF;
+    cursor: pointer;
+}
+

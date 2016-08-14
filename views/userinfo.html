@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/style.css"/>
+
+</head>
+<body>
+    <div class="user_info_wrapper">
+        <form action="/users/update/userinfo.html" method="post">
+        <%if(user){%>
+        user_id : <input type="text" name="_id" value="<%=user._id%>"/> <br>
+        user_name: <input type="text" name="name" value="<%=user.name%>"/> <br>
+        user_age: <input type="text" name="age" value="<%=user.age%>"/> <br>
+        user_address: <input type="text" name="address" value="<%=user.address%>"/> <br>
+        user_description: <input type="text" name="description" value="<%=user.description%>"/> <br>
+        <%}%>
+            <button type="submit">修改</button>
+        </form>
+    </div>
+</body>
+</html>

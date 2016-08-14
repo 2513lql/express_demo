@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../public/javascripts/jquery-3.0.0.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../public/stylesheets/icon.css"/>
+    <script>
+
+        $(document).ready(function () {
+            setEvent();
+            var btn3 = document.getElementById("btn3");
+            var div3 = document.getElementById("div3");
+            btn3.addEventListener('click', function () {
+                alert("btn3 was click");
+            }, true);
+
+            btn3.addEventListener('click', function () {
+                alert("btn3 second time handle");
+            }, false);
+
+            div3.addEventListener('click', function () {
+                alert("div3 was click");
+            }, true);
+
+            var btn4 = document.getElementById("btn4");
+            btn4.onclick = function () {
+                alert(event.target);
+                alert(event.eventPhase);
+                alert(event.srcElement);
+            }
+
+            var a_btn = document.getElementById("a_btn");
+            a_btn.onclick = function (event) {
+                event = event ? event : window.event;
+                event.preventDefault();
+                alert(event.target);
+            }
+
+            window.addEventListener('scroll', function () {
+                if (document.compatMode == 'CSS1Compat') {
+                    console.log(document.documentElement.scrollTop);
+                } else {
+                    console.log(document.body.scrollTop);
+                }
+            }, false);
+
+
+//            $("#btn3").click(function(){
+////                alert(event);
+////                alert("btn3 was click");
+//            });
+//            $("#div3").click(function(){
+//               with (document){
+//                   with (this){
+//                       alert(this.constructor);
+//                   }
+//                   alert(body);
+//               }
+
+//            });
+//            document.body.onclick=function(){
+////                alert("body was clicked");
+//            }
+        });
+
+        function addEvent(obj, event, handler) {
+            event = event ? event : window.event;
+            if (obj.addEventListener) {
+                obj.addEventListener(event, handler, true);
+            } else if (obj.attachEvent) {
+                event += 'on';
+                obj.attachEvent(event, handler);
+            } else {
+                event += 'on';
+                obj[event] = handler;
+            }
+
+        }
+
+        function setEvent() {
+
+            var btn1 = document.getElementById("btn1");
+            addEvent(btn1, 'click', sendMessageWithGet);
+            var btn2 = document.getElementById("btn2");
+            addEvent(btn2, 'click', sendMessageWithPost);
+
+        }
+
+        function sendMessageWithGet() {
+            console.log("hello");
+            $.ajax({
+                async: false,
+                url: 'http://localhost:3000/index/get/test.html',
+                data: {'username': '小明', 'address': '北京'},
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data.message);
+                }
+            });
+        }
+
+        function sendMessageWithPost() {
+            $.ajax({
+                async: false,
+                url: 'http://localhost:3000/index/post/test.html',
+                data: {'username': '小明', 'address': '北京'},
+                type: 'POST',
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+
+        $(function () {
+            $("#first_menu").mouseover(function () {
+                $("#sub_menu").addClass('open');
+            });
+            $("#first_menu").mouseout(function () {
+                $("#sub_menu").removeClass('open');
+            });
+        });
+
+        $(function () {
+            $("#translate").mousemove(function () {
+                console.log("hello world");
+                $("#translate").addClass("translate_2d");
+            });
+        });
+
+    </script>
+
+    <style type="text/css">
+
+        #div3 {
+            width: 100px;
+            height: 100px;
+            background: #ddffdd;
+            position: relative;
+        }
+
+        #btn3 {
+            display: block;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            margin-left: -20px;
+            margin-top: -10px;
+        }
+
+        .div {
+            width: 100px;
+            height: 100px;
+            background: #ddffdd;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: block;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            margin-left: -20px;
+            margin-top: -10px;
+        }
+
+        a {
+            text-decoration: none;
+            font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+            padding: 0.2em 0.3em;
+            background: #00B7FF;
+            color: #F5F5F5;
+            border-radius: 3px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: block;
+            margin-left: -20px;
+            margin-top: -15px;
+        }
+
+        #nav_wrapper {
+            margin: 0px auto;
+            border: 1px solid #d3d3d3;
+            width: 200px;
+        }
+
+        ul {
+            list-style: none;
+            display: block;
+            -webkit-transition: all 0.5s linear 0s;
+            -moz-transition: all 0.5s linear 0s;
+            -o-transition: all 0.5s linear 0s;
+            transition: all 0.5s linear 0s;
+        }
+
+        .first_menu {
+            background: #d5d5d5;
+            -webkit-transition: all 0.5s linear 0s;
+            -moz-transition: all 0.5s linear 0s;
+            -o-transition: all 0.5s linear 0s;
+            transition: all 0.5s linear 0s;
+        }
+
+        .first_menu span {
+            -webkit-transition: all 0.5s linear 0s;
+            -moz-transition: all 0.5s linear 0s;
+            -o-transition: all 0.5s linear 0s;
+            transition: all 0.5s linear 0s;
+        }
+
+        .first_menu:hover span.glyphicon-arrow-up {
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+
+        .sub-menu {
+            display: none;
+            -webkit-transition: all 0.5s linear 0s;
+            -moz-transition: all 0.5s linear 0s;
+            -o-transition: all 0.5s linear 0s;
+            transition: all 0.5s linear 0s;
+        }
+
+        .open {
+            display: block;
+            -webkit-transition: all 0.5s linear 0s;
+            -moz-transition: all 0.5s linear 0s;
+            -o-transition: all 0.5s linear 0s;
+            transition: all 0.5s linear 0s;
+        }
+
+        .translate {
+            width: 200px;
+            height: 150px;
+            background: #CC3333;
+            position: relative;
+            -webkit-transition: all 1s linear 0s;
+            transition: all 1s linear 0s;
+        }
+
+        .translate_2d {
+            -webkit-transform: translate(100px, 200px);
+            transform: translate(100px, 200px);
+            transform: scale(2, 2);
+        }
+
+        .ipt {
+            width: 300px;
+            height: 35px;
+            border-radius: 4px;
+            border: 1px solid #d3d3d3;
+            -webkit-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+            /*-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);*/
+            /*box-shadow: inset 0 1px 1px rgba(0,0,0,.075);*/
+        }
+
+        .ipt:focus {
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0px 1px 8px rgba(0, 0, 0, .075), 0px 1px 8px rgba(102, 175, 233, .6);
+            box-shadow: inset 0px 1px 8px rgba(0, 0, 0, .075), 0px 1px 8px rgba(102, 175, 233, .6);
+
+        }
+
+        .ipt2{
+            width: 300px;
+            height: 30px;
+            border: 1px solid #CCCCCC;
+            -webkit-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+        }
+
+        .ipt2:focus{
+            outline: 0;
+            border-color: #66afe9;
+            box-shadow: 1px 1px 5px rgba(102,175,233,0.5),-1px -1px 5px rgba(102,175,233,0.5);
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+<form method="get" action="http://localhost:3000/albums/first/detail.html">
+    name:<input type="text" name="username"/><br/>
+    age:<input type="text" name="address"/><br/>
+    <input type="submit" value="提交">
+</form>
+
+<form method="post" action="http://localhost:3000/albums/first/detail2.html">
+    name:<input type="text" name="username"/><br/>
+    age:<input type="text" name="address"/><br/>
+    <input type="submit" value="提交">
+</form>
+
+<p>
+    <button id="btn1">
+        ajax_get请求
+    </button>
+</p>
+<p>
+    <button id="btn2">
+        ajax_post请求
+    </button>
+</p>
+
+<div id="div3">
+
+    <button id="btn3">
+        btn3
+    </button>
+</div>
+
+<div class="div" id="div4">
+
+    <button id="btn4" class="btn">
+        btn3
+    </button>
+</div>
+
+<div class="div">
+
+    <a href="#" id="a_btn">
+        点击
+    </a>
+
+</div>
+
+<div id="nav_wrapper">
+    <ul>
+        <li>
+            <div class="first_menu" id="first_menu">
+                系统管理<span class="glyphicon glyphicon-arrow-up"></span>
+            </div>
+            <ul class="sub-menu" id="sub_menu">
+                <li>
+                    系统查看
+                </li>
+                <li>
+                    系统维护
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="translate" id="translate">
+
+</div>
+
+<div style="width: 500px;height: 300px;padding: 20px">
+    <input type="text" id="ipt" class="ipt"/>
+</div>
+
+<div style="width: 500px;height: 300px;padding: 20px">
+    <input type="text" id="ipt2" class="ipt2">
+
+</div>
+
+</body>
+</html>

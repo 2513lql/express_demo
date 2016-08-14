@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style type="text/css">
+
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        .drawing {
+            /*background: #ddffdd;*/
+            position: relative;
+            border: 1px solid #00CC66;
+        }
+
+        .textShadow{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #CCCCCC;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 2px #ee0000;
+            text-indent: 2em;
+            background: #00CC66;
+            /*position: absolute;*/
+            opacity: 0.8;
+            margin-left: 300px;
+            letter-spacing: 2em;
+        }
+
+        .listContainer{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #CCCCCC;
+            margin-left: 200px;
+        }
+        .listContainer ul{
+            list-style-image: url("../../public/images/login/username.png");
+        }
+
+        .listContainer li{
+            background: #ddffdd;
+        }
+
+        .inline-block-container{
+            padding: 20px;
+            margin-left: 200px;
+            letter-spacing: -7px;
+        }
+
+        .block{
+            width: 50px;
+            height: 20px;
+            background: #00CC66;
+            display: inline-block;
+            letter-spacing: normal;
+        }
+
+        .line-height{
+            border: 1px solid #ddffdd;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+        }
+
+        .inner{
+            width: 50px;
+            height: 50px;
+            border: 1px solid #00CC66;
+        }
+
+        .filter1{
+            filter: blur(5em);
+            /*filter: brightness(200%);*/
+        }
+
+    </style>
+
+    <script>
+        window.onload = function () {
+            (function () {
+                var drawing = document.getElementById("drawing");
+                if (drawing.getContext) {
+                    var context = drawing.getContext("2d");
+                    context.fillStyle = "#009966"; //填充的颜色
+                    context.fillRect(10, 10, 50, 50);
+                    context.fillStyle = "rgba(204,51,51,0.5)";
+                    context.fillRect(30, 30, 50, 50);
+                    context.clearRect(30, 30, 30, 30);
+
+                    context.strokeStyle = "#FF0000";
+                    context.strokeRect(80, 80, 50, 50);
+
+                    context.strokeStyle = "#00FF00";
+                    context.strokeRect(100, 100, 50, 50);
+
+                }
+            })();
+
+            (function(){
+                var drawing = document.getElementById("drawing2");
+                if(drawing.getContext){
+                    var context = drawing.getContext("2d");
+                    //开始路径
+                    context.beginPath;
+                    context.strokeStyle = "#00FF00";
+                    context.arc(100,100,80,0,2 * Math.PI,false);
+
+                    context.moveTo(150,100);
+                    context.arc(100,100,50,0,2 * Math.PI,false);
+
+                    context.moveTo(100,100);
+                    context.lineTo(100,50);
+
+                    context.moveTo(100,100);
+                    context.lineTo(50,100);
+
+
+                    context.rect(200,200,100,100);
+
+                    context.stroke();
+
+                    context.font="bold 14px Arial";
+                    context.textAlign = "center";
+                    context.textBaseline="middle";
+                    context.fillText("12",100,50);
+
+                }
+            })();
+
+            (function(){
+                var canvas = document.getElementById("drawing3");
+                if(canvas.getContext){
+                    var context = canvas.getContext("2d");
+                    context.beginPath();
+                    context.strokeStyle = "#00FF00";
+//                    context.moveTo(20,20);           // 创建开始点
+//                    context.lineTo(100,20);          // 创建水平线
+                    context.moveTo(100,20);
+                    context.arcTo(140,20,150,70,50); // 创建弧
+//                    context.lineTo(150,120);         // 创建垂直线
+                    context.stroke();
+                }
+            })();
+
+            (function(){
+                var canvas = document.getElementById("drawing4");
+                if(canvas.getContext){
+                    var context = canvas.getContext("2d");
+
+                    context.fillStyle="#ee0000";
+
+                    context.shadowOffsetX = 5;
+                    context.shadowOffsetY = 5;
+                    context.shadowBlur = 4;
+                    context.shadowColor = "#FF5511 ";
+
+                    context.fillRect(10,10,100,100);
+
+                    context.fillStyle = "rgba(136,161,98,0.5)"
+
+                    context.fillRect(100,100,100,100);
+
+                    var gradient = context.createLinearGradient(200,200,300,300);
+                    gradient.addColorStop(0,"#FFF");
+                    gradient.addColorStop(1,"#000");
+
+                    context.fillStyle = gradient;
+                    context.fillRect(200,200,100,100);
+
+                    var gradient2 = context.createLinearGradient(100,300,150,350);
+                    gradient2.addColorStop(0,"#ee0000");
+                    gradient2.addColorStop(1,"#00ee00");
+
+                    context.fillStyle = gradient2;
+                    context.fillRect(50,250,150,150);
+
+                    var gradient3 = context.createRadialGradient(240,40,10,240,40,40);
+                    gradient3.addColorStop(0,"#FFFFFF");
+                    gradient3.addColorStop(1,"#000000");
+                    context.fillStyle = gradient3;
+                    context.fillRect(200,0,80,80);
+
+                }
+            })();
+
+            (function(){
+                var canvas = document.getElementById("drawing5");
+                var first = {p:[{x:0,y:0},{x:200,y:0},{x:0,y:200},{x:0,y:0}],color:"#0ff"};
+                var second = {p:[{x:200,y:0},{x:400,y:0},{x:200,y:200},{x:0,y:200},{x:200,y:0}],color:"#7FFF00"};
+                var third = {p:[{x:400,y:0},{x:400,y:100},{x:300,y:100},{x:400,y:0}],color:"#8A2BE2"};
+                var forth = {p:[{x:300,y:100},{x:400,y:100},{x:400,y:200},{x:200,y:200},{x:300,y:100}],color:"#FF1493"};
+                var five = {p:[{x:0,y:200},{x:100,y:200},{x:100,y:400},{x:0,y:400},{x:0,y:200}],color:"#FFD700"}
+                var six = {p:[{x:100,y:200},{x:250,y:400},{x:100,y:400},{x:100,y:200}],color:"#808080"};
+                var seven = {p:[{x:100,y:200},{x:250,y:400},{x:400,y:200},{x:100,y:200}],color:"#ADD8E6"};
+                var eight = {p:[{x:400,y:200},{x:400,y:400},{x:250,y:400},{x:400,y:200}],color:"#BA55D3"};
+                var arr = [first,second,third,forth,five,six,seven,eight];
+
+                if(canvas.getContext){
+                    var context = canvas.getContext("2d");
+
+                    for(var i = 0 ; i < arr.length;i++){
+                        draw(arr[i]);
+                    }
+
+                }
+
+                function draw(item){
+                    context.beginPath();
+                    var pointArr = item.p;
+                    console.log(pointArr);
+                    context.fillStyle = item.color;
+                    for(var i = 0 ; i < pointArr.length;i++){
+                        var x = pointArr[i].x;
+                        var y = pointArr[i].y;
+                        if(i == 0){
+                            context.moveTo(x,y);
+                        }
+                        else{
+                            context.lineTo(x,y);
+                        }
+                    }
+                    context.closePath();
+                    context.fill();
+                    context.strokeStyle = "#000";
+                    context.stroke();
+                }
+
+            })();
+
+            (function(){
+
+                var canvas = document.getElementById("drawing6");
+                if(canvas.getContext){
+                    var context = canvas.getContext("2d");
+                    context.strokeStyle = "#ADD8E6";
+                    context.lineWidth = 3;
+
+                    for(var i = 0 ; i < 5 ; i++){
+                        context.beginPath();
+                        context.arc(50 + i * 50 , 50,20,0,1.5 * Math.PI,false);
+                        context.closePath();
+                        context.stroke();
+                    }
+                }
+
+                drawFiveCircle();
+
+                function drawFiveCircle(){
+                    context.lineWidth = 5;
+                    context.beginPath();
+                    context.arc(70,150,50,0,2 * Math.PI,false);
+                    context.closePath();
+                    context.strokeStyle = "#1E90FF";
+                    context.stroke();
+
+                    context.beginPath();
+                    context.arc(190,150,50,0,2 * Math.PI,false);
+                    context.closePath();
+                    context.strokeStyle = "#000000";
+                    context.stroke();
+
+                    context.beginPath();
+                    context.arc(310,150,50,0,2 * Math.PI,false);
+                    context.closePath();
+                    context.strokeStyle = "#DC143C";
+                    context.stroke();
+
+                    context.beginPath();
+                    context.arc(130,200,50,0,2 * Math.PI,false);
+                    context.closePath();
+                    context.strokeStyle = "#FFD700";
+                    context.stroke();
+
+                    context.beginPath();
+                    context.arc(250,200,50,0,2 * Math.PI,false);
+                    context.closePath();
+                    context.strokeStyle = "#00DB00";
+                    context.stroke();
+                }
+
+            })();
+        }
+    </script>
+
+</head>
+<body>
+
+<canvas id="drawing" class="drawing" width="400" height="400">
+</canvas>
+<canvas id="drawing2" class="drawing" width="400" height="400">
+</canvas>
+<canvas id="drawing3" class="drawing" width="400" height="400">
+</canvas>
+
+<canvas id="drawing4" class="drawing" width="400" height="400">
+
+</canvas>
+
+<canvas id="drawing5" class="drawing" width="400" height="400">
+
+</canvas>
+
+<canvas id="drawing6" class="drawing" width="400" height="400">
+
+</canvas>
+
+<div class="textShadow">
+    <p>
+        你好你好你好你好你好你好你好你好你好你好你好你好
+    </p>
+</div>
+
+<div class="listContainer">
+    <ul>
+        <li>
+            item1
+        </li>
+        <li>
+            item2
+        </li>
+        <li>
+            item3
+        </li>
+    </ul>
+</div>
+
+<div class="listContainer inline-block-container">
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+</div>
+
+<div class="line-height">
+    <div class="inner">
+
+    </div>
+</div>
+
+<div >
+    <img width="300" height="300" src="../../public/images/img/1.jpg">
+    <img class="filter1" width="300" height="300" src="../../public/images/img/1.jpg">
+</div>
+
+<div>
+
+</div>
+
+</body>
+</html>

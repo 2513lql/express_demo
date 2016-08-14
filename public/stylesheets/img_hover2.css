@@ -1,0 +1,53 @@
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.img-container{
+    position: relative;
+    left: 500px;
+    width: 400px;
+    height: 600px;
+    border: 2px solid #101010;
+    overflow: hidden;
+}
+
+.img-container .img-wrapper{
+    float: left;
+    position: relative;
+    width: 200px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.img-container .img-wrapper img{
+    transition: all 0.5s ease;
+}
+
+.img-container .img-hover{
+    position: absolute;
+    z-index: 1000;
+    background: #262626;
+    width: 200px;
+    height: 300px;
+    margin-top: -303px;
+    color: #ffffff;
+    opacity: 0;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.img-container .img-hover:hover{
+    opacity: 0.5;
+}
+
+.img-container .img-wrapper:hover img{
+    transform: scale(1.2,1.2);
+}
+
+
+
+
+
+

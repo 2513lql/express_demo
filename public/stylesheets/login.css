@@ -1,0 +1,146 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: "Lantinghei SC", "Microsoft Yahei", 宋体, Arial, Helvetica, sans-serif;
+}
+
+
+.login-top-background{
+    background: #008ead;
+    width: 100%;
+    height: 400px;
+}
+.login-container{
+    position: relative;
+    background: #ffffff;
+    border: 1px solid rgb(231,231,231);
+    width: 400px;
+    height: 230px;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+    text-align: center;
+}
+
+/*错误信息提示容器*/
+
+.login-container .hint_message_wrapper{
+    padding: 10px 70px 0px;
+    color: #CC3333;
+    text-align: left;
+}
+
+/*输入框容器*/
+.login-container .username-input-wrapper{
+    padding: 5px 0px 10px;
+    position: relative;
+    /*border: 1px solid #d3d3d3;*/
+}
+
+.login-container .password-input-wrapper{
+    padding: 5px 0 10px;
+    position: relative;
+}
+
+/*用户名的头像*/
+.login-container .name-icon{
+    background: url("../images/login/username.png") no-repeat;
+    padding: 13px 13px;
+    position: absolute;
+    top: 13px;
+    left: 37px;
+}
+
+/*密码头像*/
+.login-container .password-icon{
+    background: url("../images/login/password.png") no-repeat;
+    padding: 13px 13px;
+    position: absolute;
+    top: 12px;
+    left: 37px;
+}
+
+/*清除输入内容的按钮*/
+.login-container .name-delete-icon{
+    background: url("../images/login/delete.png") no-repeat;
+    position: absolute;
+    padding: 11px 11px;
+    top: 13px;
+    left: 345px;
+    cursor: pointer;
+    display: none;
+}
+
+.login-container .password-delete-icon{
+    background: url("../images/login/delete.png") no-repeat;
+    position: absolute;
+    padding: 11px 11px;
+    top: 12px;
+    left: 345px;
+    cursor: pointer;
+    display: none;
+}
+
+/*输入框样式*/
+.login-container .ipt{
+    border: 1px solid #d3d3d3;
+    padding: 10px 10px;
+    width: 290px;
+    border-radius: 4px;
+    padding-left: 35px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+}
+.login-container .ipt:focus{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+
+/*记住密码*/
+.login-container .remember-password-wrapper{
+    padding: 0px 50px;
+    text-align: left;
+    font-size: 1em;
+    color: gray;
+}
+
+.login-container .remember-password-wrapper input{
+    width: 15px;
+    height: 15px;
+    margin-top: 5px;
+}
+
+.login-container .remember-password-wrapper a{
+    position: relative;
+    left: 150px;
+    text-decoration: none;
+    color: grey;
+}
+
+/*登录按钮*/
+.login-container .login-btn-wrapper{
+    padding: 10px 0px 10px;
+}
+
+.login-container .login-btn-wrapper .login-btn{
+    height: 35px;
+    width: 300px;
+    background: #CC3333;
+    color: #FFF;
+    font-size: 1em;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+
+
+
+
+
+

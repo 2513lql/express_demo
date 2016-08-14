@@ -1,0 +1,125 @@
+/*×ó²à¿ÉÕÛµþµ¼º½*/
+
+
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Lantinghei SC", "Microsoft Yahei", ËÎÌå, Arial, Helvetica, sans-serif;
+}
+
+
+.left-nav-wrapper{
+    width: 16%;
+    height: 660px;
+    float: left;
+    overflow: hidden;
+    /*margin-left: 20px;*/
+    border-right:1px solid #CCCCCC;
+}
+
+ ul{
+    list-style-type: none;
+    display: block;
+}
+
+
+
+.left-nav-wrapper a{
+    color: dimgray;
+    text-decoration: none;
+}
+
+.first-class-menu{
+    width: 100%;
+}
+
+.first-class-menu .link{
+    display: block;
+    cursor: pointer;
+    padding: 8px 8px 8px 50px;
+    border-bottom: 1px solid #ccc;
+    font-weight: 500;
+    position: relative;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+/*.first-class-menu li:last-child .link{*/
+    /*border-bottom: 0px;*/
+/*}*/
+
+.first-class-menu .link i{
+    position: absolute;
+    top: 9px;
+    left: 20px;
+    color: #595959;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.first-class-menu .link i.fa-chevron-down{
+    right: 60px;
+    font-size: 16px;
+    left: auto;
+}
+
+.first-class-menu li.open i,.first-class-menu li.open .link{
+    color: #009966;
+}
+
+
+.first-class-menu li.open i.fa-chevron-down{
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+
+
+/*submenu*/
+.sub-menu{
+    display: none;
+    background: #eeeeee;
+    font-size: 14px;
+    /*margin-left: -40px;*/
+}
+
+.sub-menu li{
+    display: block;
+    border-bottom: 1px solid #4b4a5e;
+    /*margin-left: -40px;*/
+}
+
+.sub-menu li:last-child{
+    border-bottom: 0px;
+}
+
+.sub-menu li a{
+    display: block;
+    padding: 8px 8px 8px 65px;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.sub-menu li a:hover{
+    background: #FFFAFA;
+}
+
+
+
+
+
+
+
+
+
+
+
+

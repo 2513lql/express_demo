@@ -1,0 +1,100 @@
+
+.gallery-container{
+    width: 650px;
+    height: 220px;
+    border: 1px solid #e6e6e6;
+    overflow: hidden;
+    position: relative;
+    top: 50px;
+    left: 200px;
+}
+
+.gallery-container .swift-btn-wrapper{
+    width: inherit;
+    height: 30px;
+    border: 1px solid #e6e6e6;
+}
+
+#left_btn,#right_btn{
+    display: block;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#left_btn:hover,#right_btn:hover{
+    color: #00CC66;
+}
+
+#left_btn{
+    margin-left: 30px;
+    float: left;
+}
+
+#right_btn{
+    float: right;
+    margin-right: 30px;
+}
+
+.clear-float:after{
+    display: block;
+    content: "";
+    visibility: hidden;
+    clear: both;
+}
+.clear-float{
+    zoom: 1;
+}
+
+.gallery-container .images-wrapper{
+    width: 2000px;
+}
+
+.gallery-container ul{
+    list-style-type: none;
+}
+
+.gallery-container ul li{
+    display: inline-block;
+    padding-bottom: 20px;
+    margin-left: 2px;
+}
+
+.gallery-container ul li:first-child{
+    margin-left: -30px;
+}
+
+.gallery-container ul li:last-child{
+    margin-right: 30px;
+}
+
+.gallery-container2{
+    position: relative;
+    left: 300px;
+    top: 200px;
+}
+
+.gallery-container2 .images-wrapper{
+
+}
+
+.gallery-container2 ul{
+    list-style-type: none;
+    background: #e6e6e6;
+
+}
+
+.gallery-container2 ul li{
+    float: left;
+    margin-left: 10px;
+    border: 1px solid #c1e2b3;
+}
+
+.gallery-container2 ul li:hover{
+    cursor: pointer;
+    border: 3px solid #00CC66;
+}
+
+
+.gallery-container2 ul li:first-child{
+    margin-left: -40px;
+}

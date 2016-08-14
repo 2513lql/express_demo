@@ -1,0 +1,117 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Lantinghei SC", "Microsoft Yahei", 宋体, Arial, Helvetica, sans-serif;
+    font-style: normal;
+}
+
+
+
+
+.divide_page_nav_wrapper{
+    width: 670px;
+    height: 2.6em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -350px;
+    margin-top: -20px;
+    /*border: 1px solid #ccffcc;*/
+}
+
+
+.divide_page_nav_wrapper ul{
+    display: block;
+    list-style: none;
+}
+
+.divide_page_nav_wrapper div{
+    display: inline-block;
+}
+
+.divide_page_nav_wrapper li{
+    display: block;
+    float: left;
+    margin-left: 5px;
+}
+
+.divide_page_nav_wrapper li.hidden{
+    display: none;
+}
+
+.divide_page_nav_wrapper li a{
+    display: block;
+    text-decoration: none;
+    width: 33px;
+    height: 33px;
+    color: #000;
+    border: 1px solid #eeeeee;
+    background: #F5F5F5;
+    text-align: center;
+    line-height: 33px;
+}
+
+/*上一页*/
+#previous,#next{
+    width: 60px;
+    height: 32px;
+}
+
+.divide_page_nav_wrapper li a:hover{
+    background: transparent;
+}
+
+.divide_page_nav_wrapper li a.nav_active{
+    background: transparent;
+    cursor: text;
+}
+
+/*省略号*/
+.divide_page_nav_wrapper li a.ellipsis{
+    border: none;
+    cursor: not-allowed;
+    background: transparent;
+}
+
+/*总页数*/
+.total_count_wrapper{
+    padding: 0.5em 0.8em;
+    margin-left: 1em;
+    position: relative;
+}
+
+/*去某页*/
+.to_page_wrapper{
+    padding: 0.5em 0.3em;
+}
+
+.to_page_wrapper input{
+    width: 1.8em;
+    height: 1.3em;
+    margin: 0 2px;
+    padding: 0.2em;
+    text-align: center;
+}
+
+.total_count_wrapper span{
+    color: #777777;
+    font-weight: bolder;
+}
+
+/*确定按钮*/
+.divide_page_nav_wrapper > a{
+    display: inline-block;
+    padding: 0.3em 0.7em;
+    background: #00B7FF;
+    border-radius: 2px;
+    cursor: pointer;
+    color: #FFFFFF;
+    margin-left: 0.5em;
+}
+
+.divide_page_nav_wrapper > a:hover{
+    background: dodgerblue;
+}
+
+
+

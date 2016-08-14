@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/dao/UserDao.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dao/dbutil.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/javascripts/divide_page.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/javascripts/login.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/javascripts/register.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/routes/users.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/util/res_util.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/views/jquery/js/dom-operation.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/views/jquery/js/selector.js" charset="UTF-8" />
+  </component>
+</project>

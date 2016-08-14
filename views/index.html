@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="/javascripts/jquery-3.0.0.js" type="text/javascript"></script>
+    <script  src="/javascripts/users.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+    <button id="btn1">button</button>
+    <!--<button id="adduserbtn">添加用户</button>-->
+    <form action="http://localhost:8080/users/adduser.html" method="post">
+        _id:<input type="text" name="userId"/><br>
+        name:<input type="text" name="name"/><br>
+        age:<input type="text" name="age"/><br>
+        address:<input type="text" name="address"/><br>
+        description:<input type="text" name="description"/><br>
+        <button type="submit">添加用户</button>
+    </form>
+    <form action="http://localhost:8080/users/finduser.html" method="get">
+        <input type="text" name="userId"/>
+        <button type="submit">查询用户</button>
+    </form>
+
+    <form action="http://localhost:8080/users//v1/dividpage/finduser.html" method="get">
+        <input type="text" name="cur_page"/><br>
+        <input type="text" name="page_size"/><br>
+        <button type="submit">分页查询用户</button>
+    </form>
+
+    <form action="http://localhost:8080/users/delete/user.html" method="post">
+        <input type="text" name="userId"/>
+        <button type="submit">删除用户</button>
+    </form>
+
+    <form action="http://localhost:8080/users/finduserbyname.html" method="get">
+        <input type="text" name="username"/>
+        <button type="submit">使用姓名查询用户</button>
+    </form>
+
+    <a href="http://localhost:8080/users/jack/12.html">使用名字和年龄查询</a><br>
+    <a href="http://localhost:8080/users/age/10/15.html">按年龄区间查询</a>
+    <a href="http://localhost:8080/users/userinfo.html">查询用户</a>
+
+</body>
+</html>
