@@ -15,10 +15,10 @@
         $.extend(defauls, options || {});//将defaults中的字段值用options中的字段值替换
         console.log(defauls);
         if (defauls.totalCount == '') {
-            $(this).empty();
+            //$(this).empty();
             return false;
         } else if (Number(defauls.totalCount) <= 0) {
-            $(this).empty();
+            //$(this).empty();
             return false;
         }
         if (defauls.showPage == '') {

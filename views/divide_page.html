@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>用户查询</title>
-    <link rel="stylesheet" href="/stylesheets/divide_page_nav.css"/>
-    <script src="/javascripts/jquery-3.0.0.js"></script>
-    <script src="/javascripts/divide_page.js"></script>
+    <link rel="stylesheet" href="../public/stylesheets/divide_page_nav.css"/>
+    <script src="../public/javascripts/jquery-3.0.0.js"></script>
+    <script src="../public/javascripts/divide_page.js"></script>
     <script>
         $(document).ready(function(){
-                loadFirstPage();
+//                loadFirstPage();
+            var data= {recordCounts:20};
+            parseFirstPageData(data);
         });
 
         function loadFirstPage(){
@@ -46,10 +48,10 @@
         }
 
         function parseFirstPageData(data){
-            data = JSON.parse(data);
-            var recordsCount = Number(data["recordCounts"]);
+//            data = JSON.parse(data);
+//            var recordsCount = Number(data["recordCounts"]);
             $("#nav_wrapper").dividePageNav({
-                totalCount:recordsCount,
+                totalCount:1,
                 showPage:5,
                 pageSize:10,
                 callback: function (cur,pageSize,totalCount) {
